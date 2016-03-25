@@ -1,0 +1,16 @@
+# Create a schema (MySQL calls it a database) for the tasklist app
+drop database if exists USERID_tasklist;
+create database USERID_tasklist;
+
+# Create an administrator for the tasklist data
+#drop user USEDRID_tladm;
+create user USERID_tladm identified by 'tasklistadmin';
+
+# Create an application user id for the tasklist web app
+#drop user USERID_tlapp;
+create user USERID_tlapp identified by 'tasklistwebapp';
+
+# Setup the permissions for the administrator and web application
+grant all on tasklist.* to USERID_tladm;
+grant select, delete, insert, update on tasklist.* to USERID_tlapp;
+

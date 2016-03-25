@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="EnvLibs/catalina-ant.jar"/>
+	<classpathentry kind="lib" path="EnvLibs/junit.jar"/>
+	<classpathentry kind="lib" path="EnvLibs/servlet.jar"/>
+	<classpathentry kind="lib" path="website/WEB-INF/lib/log4j-1.2.9.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="website/WEB-INF/lib/mysql-connector-java-5.1.38-bin.jar"/>
+	<classpathentry kind="lib" path="website/WEB-INF/lib/encoder-1.2.jar"/>
+	<classpathentry kind="lib" path="website/WEB-INF/lib/encoder-jsp-1.2.jar"/>
+	<classpathentry kind="output" path="website/WEB-INF/classes"/>
+</classpath>

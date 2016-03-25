@@ -1,0 +1,30 @@
+# Run as YOURID_tladm;
+
+# Change the active schema to USERID_tasklist;
+use YOURID_tasklist;
+
+# Create the member table;
+drop table if exists member;
+create table member (
+	id integer not null auto_increment,
+	userName varchar(20) not null,
+	birthDay date,
+	firstName varchar(40) not null,
+	lastName varchar(40) not null,
+	country varchar(40) not null,
+	point int(5) not null,
+	primary key (id)
+);
+
+# Create the user table;
+drop table if exists user;
+create table user (
+	id integer not null auto_increment,
+	username varchar(40) not null UNIQUE,
+	first_name varchar(40),
+	last_name varchar(40),
+	email varchar(40),
+	password varchar(40) not null,
+	country varchar(40),
+	primary key (id)
+);

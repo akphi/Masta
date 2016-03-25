@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE web-app
+PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+"http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+	<display-name>Servlet and JSPs for managing a member database</display-name>
+	<description>This web application maintains a member database using several servlets, JSPs and session persistence</description>
+
+	<!-- User Login Servlet -->
+	<servlet>
+		<servlet-name>USER-LOGIN</servlet-name>
+		<display-name>User Login</display-name>
+		<description>A servlet that manages user login</description>
+		<servlet-class>aphi.servlet.user.Login</servlet-class>
+		<load-on-startup>1</load-on-startup>
+		<init-param>
+			<param-name>RdbDriverClass</param-name>
+			<param-value>com.mysql.jdbc.Driver</param-value>
+		</init-param>
+		<init-param>
+			<param-name>RdbUrl</param-name>
+			<param-value>jdbc:mysql://db4free.net:3306/blacksteed232</param-value>
+		</init-param>
+		<init-param>
+			<param-name>RdbUserName</param-name>
+			<param-value>blacksteed232</param-value>
+		</init-param>
+		<init-param>
+			<param-name>RdbUserPassword</param-name>
+			<param-value>qwerty</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>USER-LOGIN</servlet-name>
+		<url-pattern>/user/login</url-pattern>
+		<url-pattern>/user/login/</url-pattern>
+	</servlet-mapping>
+	
+	<!-- User Create Servlet -->
+	<servlet>
+		<servlet-name>USER-CREATE</servlet-name>
+		<display-name>User Create</display-name>
+		<description>A servlet that manages user create</description>
+		<servlet-class>aphi.servlet.user.Create</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>USER-CREATE</servlet-name>
+		<url-pattern>/user/create</url-pattern>
+		<url-pattern>/user/create/</url-pattern>
+	</servlet-mapping>
+	
+	<!-- User Logout Servlet -->
+	<servlet>
+		<servlet-name>USER-LOGOUT</servlet-name>
+		<display-name>User Logout</display-name>
+		<description>A servlet that manages user logout</description>
+		<servlet-class>aphi.servlet.user.Logout</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>USER-LOGOUT</servlet-name>
+		<url-pattern>/user/logout</url-pattern>
+		<url-pattern>/user/logout/</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Member List Servlet -->
+	<servlet>
+		<servlet-name>MEMBER-LIST</servlet-name>
+		<display-name>Member List</display-name>
+		<description>A servlet that manages member viewing</description>
+		<servlet-class>aphi.servlet.member.List</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MEMBER-LIST</servlet-name>
+		<url-pattern>/member/list</url-pattern>
+		<url-pattern>/member/list/</url-pattern>
+	</servlet-mapping>
+
+	<!-- Member Edit Servlet -->
+	<servlet>
+		<servlet-name>MEMBER-EDIT</servlet-name>
+		<display-name>Member Edit</display-name>
+		<description>A servlet that manages member editing</description>
+		<servlet-class>aphi.servlet.member.Edit</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MEMBER-EDIT</servlet-name>
+		<url-pattern>/member/edit</url-pattern>
+		<url-pattern>/member/edit/</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Member Update Servlet -->
+	<servlet>
+		<servlet-name>MEMBER-UPDATE</servlet-name>
+		<display-name>Member Update</display-name>
+		<description>A servlet that manages member updating</description>
+		<servlet-class>aphi.servlet.member.Update</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MEMBER-UPDATE</servlet-name>
+		<url-pattern>/member/update</url-pattern>
+		<url-pattern>/member/update/</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- Member Add Servlet -->
+	<servlet>
+		<servlet-name>MEMBER-ADD</servlet-name>
+		<display-name>Member Add</display-name>
+		<description>A servlet that manages member adding</description>
+		<servlet-class>aphi.servlet.member.Add</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MEMBER-ADD</servlet-name>
+		<url-pattern>/member/add</url-pattern>
+		<url-pattern>/member/add/</url-pattern>
+	</servlet-mapping>
+
+	<!-- Member Delete Servlet -->
+	<servlet>
+		<servlet-name>MEMBER-DELETE</servlet-name>
+		<display-name>Member Delete</display-name>
+		<description>A servlet that manages member deleting</description>
+		<servlet-class>aphi.servlet.member.Delete</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MEMBER-DELETE</servlet-name>
+		<url-pattern>/member/delete</url-pattern>
+		<url-pattern>/member/delete/</url-pattern>
+	</servlet-mapping>
+
+	<!-- Preload the JSP -->
+	<servlet>
+		<servlet-name>MEMBER-VIEW-JSP</servlet-name>
+		<jsp-file>/WEB-INF/hiddenjsp/Member/List.jsp</jsp-file>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>MEMBER-EDIT-JSP</servlet-name>
+		<jsp-file>/WEB-INF/hiddenjsp/Member/Edit.jsp</jsp-file>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>USER-LOGIN-JSP</servlet-name>
+		<jsp-file>/WEB-INF/hiddenjsp/User/Login.jsp</jsp-file>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- Filter -->
+	
+	<filter>
+        <filter-name>LOGIN-CHECK</filter-name>
+        <filter-class>aphi.filter.AuthenticationCheck</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LOGIN-CHECK</filter-name>
+        <url-pattern>/member/*</url-pattern>
+    </filter-mapping>
+	
+	<filter>
+        <filter-name>LOGOUT-CHECK</filter-name>
+        <filter-class>aphi.filter.NoCache</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LOGOUT-CHECK</filter-name>
+        <url-pattern>/user/*</url-pattern>
+        <url-pattern>/member/list</url-pattern>
+    </filter-mapping>
+    
+	<!-- Handle persisting and retrieving of the tasklist between a file and the session -->
+	<listener>
+		<listener-class>aphi.listener.Session</listener-class>
+	</listener>
+
+	<!--Welcome Page-->
+	<welcome-file-list>
+		<welcome-file>user/login</welcome-file>
+	</welcome-file-list>
+
+	<!-- Error Page: 404 Handling
+	<servlet>
+	<servlet-name>error-jsp</servlet-name>
+	<jsp-file>/WEB-INF/hiddenjsp/badrequest.jsp</jsp-file>
+	<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>error-jsp</servlet-name>
+	<url-pattern>/notfound</url-pattern>
+	</servlet-mapping>
+	<error-page>
+	<location>/notfound</location>
+	</error-page>
+	-->
+
+	<!-- Session Config -->
+	<session-config>
+		<session-timeout>1</session-timeout>
+	</session-config>
+</web-app>
